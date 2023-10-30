@@ -22,7 +22,7 @@ function Slider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [team, langauge];
   const imageCount = images.length;
-  const delay = 7000; // 7 seconds
+  const delay = 8000; // 8 seconds
   const isAutoPlay = true;
 
   const nextSlide = useCallback(() => {
@@ -48,28 +48,28 @@ function Slider() {
   return (
     <div className="slider-container relative">
       <div className="slider-controls">
-        <button onClick={prevSlide} className="absolute top-52 left-5">
+        <button onClick={prevSlide} className="absolute top-52 left-5 z-10">
           <BiLeftArrow size={25} />
         </button>
-        <button onClick={nextSlide} className="absolute top-52 right-5">
+        <button onClick={nextSlide} className="absolute top-52 right-5 z-10">
           <BiRightArrow size={25} />
         </button>
       </div>
-      <div className="flex items-center px-20 justify-between">
-        <div className="flex flex-col gap-7 w-1/2">
-          <p className="text-6xl pb-6 uppercase font-semibold">
+      <div className="flex flex-col sm:flex-row  items-center px-2 sm:px-12 md:px-14  lg:px-20 justify-between pb-9 sm:pb-0">
+        <div className="flex flex-col order-2 sm:order-none gap-5 md:gap-7 sm:w-1/2">
+          <p className="text-4xl  md:text-5xl lg:text-6xl md:pb-6 pb-2 uppercase font-semibold text-center sm:text-start">
             {contentData[currentIndex].title}
           </p>
-          <div className="flex gap-7 items-center">
+          <div className="flex  gap-7 items-center justify-center sm:justify-normal">
             <Link
               to={contentData[currentIndex].link1.to}
-              className="underline underline-offset-4 text-lg"
+              className="underline underline-offset-4 md:text-lg whitespace-nowrap text-sm"
             >
               {contentData[currentIndex].link1.text}
             </Link>
             <Link
               to={contentData[currentIndex].link2.to}
-              className="bg-white text-black px-4 py-2 rounded-sm font-medium hover:bg-slate-100 text-lg"
+              className="bg-white text-black px-4 py-2 rounded-sm font-medium hover:bg-slate-100 md:text-lg whitespace-nowrap  text-sm"
             >
               {contentData[currentIndex].link2.text}
             </Link>
@@ -78,7 +78,7 @@ function Slider() {
 
         <Lottie
           animationData={images[currentIndex]}
-          className="h-[30rem] w-1/2"
+          className="sm:h-[30rem] sm:w-1/2"
         />
       </div>
     </div>
