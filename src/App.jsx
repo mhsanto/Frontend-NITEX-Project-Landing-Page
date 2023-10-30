@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./pages/Footer/Footer";
 import "./App.css";	
 import Services from "./pages/ServiceLists/Service";
+import Pricing from "./pages/Pricing";
 const App = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/pricing" element={<Pricing />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
