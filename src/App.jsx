@@ -1,9 +1,28 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import About from "./pages/AboutUs";
+import NotFound from "./pages/NotFound";
+import Navbar from "./components/Navbar";
+import Footer from "./pages/Footer/Footer";
+import Testimonial from "./pages/Testimonial";
+import "./App.css";	
 const App = () => {
   return (
-    <div className="bg-red-500">
-      <div className="w-1/2">Left</div>
-      <div className="w-1/2">Right</div>
-    </div>
+    <>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/testimonial" element={<Testimonial />} />
+        <Route path="/contact" element={<Contact />} />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </>
   );
 };
 
