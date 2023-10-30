@@ -16,8 +16,8 @@ const links = [
   },
 
   {
-    title: "Testimonials",
-    href: "/testimonials",
+    title: "Services",
+    href: "/services",
   },
   {
     title: "Solutions",

@@ -65,3 +65,10 @@
     -o-transform: rotate(-135deg);
     transform: rotate(-135deg);
   }
+
+/* css form services */
+.my-element:nth-child(2n) {
+  width: 600px!important;;
+  background-color: red;
+
+}

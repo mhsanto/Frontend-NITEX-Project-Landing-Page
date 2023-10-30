@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+
+
 // eslint-disable-next-line react/prop-types
-
-
 export default function Counter({ dataTarget }) {
   const [count, setCount] = useState(0);
   const target = parseInt(dataTarget);
