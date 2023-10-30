@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import team from "../assets/team.json";
 import langauge from "../assets/language.json";
 import Lottie from "lottie-react";
