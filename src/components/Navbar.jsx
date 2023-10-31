@@ -11,8 +11,8 @@ const links = [
     href: "/about",
   },
   {
-    title: "Contact Us",
-    href: "/contact",
+    title: "Tesitmonials",
+    href: "/testimonial",
   },
 
   {
@@ -30,8 +30,8 @@ const links = [
 ];
 const loginRegisterLinks = [
   {
-    title: "Register",
-    href: "/register",
+    title: "Contact Us",
+    href: "/contact",
   },
   {
     title: "Login",

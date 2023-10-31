@@ -49,7 +49,7 @@ const Contact = () => {
           <input
             className="py-2 px-2 placeholder:text-slate-400 rounded-lg text-base placeholder:tracking-tight  bg-gray-50 text-white focus:outline-lime-500"
             type="email"
-            placeholder="Enter Your Email Address"
+            placeholder="contact@gmail.com"
           />
           <textarea
             name=""

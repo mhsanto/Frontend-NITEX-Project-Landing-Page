@@ -25,7 +25,7 @@ const Login = () => {
               <div className="mb-6 flex items-center justify-between">
                 <div className="mb-[0.125rem] block ">
                   <Link
-                    to="/register"
+                    to="/contact"
                     className="inline-block pl-1 tracking-tighter text-base hover:cursor-pointer capitalize underline underline-offset-2"
                     htmlFor="exampleCheck3"
                   >
