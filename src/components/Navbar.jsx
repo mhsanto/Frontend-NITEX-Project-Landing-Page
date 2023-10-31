@@ -55,8 +55,6 @@ const Navbar = () => {
   const active = {
     textDecoration: "underline",
     textDecorationThickness: "2px",
-  
-
   };
 
   const text = ["N", "I", "T", "E", "X"];
@@ -132,7 +130,7 @@ const Navbar = () => {
                     hover:bg-white hover:text-black hover:outline-black
                     cursor-pointer transition-all duration-300 whitespace-nowrap "
                   >
-                    {" "}
+               
                     {link.title}
                   </motion.button>
                 </Link>
