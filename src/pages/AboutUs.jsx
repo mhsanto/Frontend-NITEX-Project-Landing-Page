@@ -54,7 +54,7 @@ const About = () => {
               }}
               viewport={{ once: true }}
               href="/"
-              className=" flex  sm:flex-row items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 sm:w-[400px] grow group overflow-hidden"
+              className=" flex flex-col  sm:flex-row items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 sm:w-[400px] grow group overflow-hidden"
             >
               <motion.img
                 className="object-contain  sm:object-cover  w-full rounded-t-lg md:h-auto h-96 md:w-48 md:rounded-none md:rounded-l-lg transition duration-300 sm:group-hover:scale-110 "
