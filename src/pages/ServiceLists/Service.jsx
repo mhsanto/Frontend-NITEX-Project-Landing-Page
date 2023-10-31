@@ -11,8 +11,8 @@ const Services = () => {
       <h1 className="text-4xl uppercase border-b  pb-2">
         Everything in One Place
       </h1>
-      <div className="flex pt-4 border-b pb-4">
-        <h1 className="text-3xl italic uppercase w-1/2 custom-font font-semibold">
+      <div className="flex flex-col sm:flex-row pt-4 border-b pb-4">
+        <h1 className="text-3xl italic uppercase w-1/2 custom-font font-semibold pb-3">
           Developing
         </h1>
         <div className=" flex flex-col gap-3 w-1/2">
@@ -52,8 +52,8 @@ const Services = () => {
           ))}
         </div>
       </div>
-      <div className="flex pt-4">
-        <h1 className="text-3xl italic uppercase w-1/2 custom-font font-semibold tracking-wider">
+      <div className="flex pt-4 flex-col sm:flex-row">
+        <h1 className="text-3xl italic uppercase w-1/2 custom-font font-semibold tracking-wider pb-3">
           Designing
         </h1>
         <div className=" flex flex-col gap-3 w-1/2">
