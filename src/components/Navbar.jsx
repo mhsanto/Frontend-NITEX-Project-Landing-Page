@@ -40,6 +40,7 @@ const loginRegisterLinks = [
   },
 ];
 const Navbar = () => {
+  const [isActive, setIsActive] = useState("Home");
   const [isOpen, setIsOpen] = useState(false);
   const isWidth = useWidth(1000);
   const handleToggle = () => {
@@ -48,13 +49,22 @@ const Navbar = () => {
     }
     setIsOpen(!isOpen);
   };
+  const handleLinkClick = (title) => {
+    setIsActive(title);
+  };
+  const active = {
+    textDecoration: "underline",
+    textDecorationThickness: "2px",
+  
+
+  };
 
   const text = ["N", "I", "T", "E", "X"];
   return (
     <nav className="bg-white text-black">
       <header className=" flex  justify-between max-w-7xl mx-auto items-center py-4  px-4 relative z-[100]">
         <Link to="/" className="flex gap-1 sm:gap-3">
-          {text.map((letter,i) => (
+          {text.map((letter, i) => (
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -79,6 +89,8 @@ const Navbar = () => {
                   to={link.href}
                   className="text-base uppercase cursor-pointer transition-all 
                   font-medium duration-300 hover:underline whitespace-nowrap "
+                  style={isActive === link.title ? active : null}
+                  onClick={() => handleLinkClick(link.title)}
                 >
                   {link.title}
                 </Link>
