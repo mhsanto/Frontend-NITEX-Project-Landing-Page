@@ -61,7 +61,7 @@ const Testimonial = () => {
         }}
       >
         {testimonials.map((testimonial) => (
-          <SplideSlide key={testimonial.id} className="flex gap-4 md:px-6 lg:px-5">
+          <SplideSlide key={testimonial.id} className="flex justify-center gap-4 md:px-6 lg:px-5">
             <div>
               <div className="flex gap-3 items-center pb-5">
                 <div className="w-20 h-20 overflow-hidden rounded-full">
@@ -79,7 +79,7 @@ const Testimonial = () => {
                   </p>
                 </div>
               </div>
-              <p className="text-lg md:text-xl font-thin max-w-2xl whitespace-pre-wrap text-slate-200 ">
+              <p className="sm:text-sm md:text-lg font-thin max-w-xl whitespace-pre-wrap text-slate-200 ">
                 &quot;{testimonial.comment}&quot;
               </p>
             </div>

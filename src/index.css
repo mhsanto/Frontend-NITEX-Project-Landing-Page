@@ -97,5 +97,22 @@ backdrop-filter: blur( 20px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
-
+.splide {
+  padding: 1em;
+}
+.splide__arrow {
+  width: 1.5em;
+}
+.splide__arrow--prev {
+  /* left: 3em; */
+  left: 1em;
+}
 /* slideshow */
+@media screen and (min-width: 1200px) {
+  .splide__arrow--prev {
+    left:20rem;
+  }
+  .splide__arrow--next {
+    right:22rem;
+  }
+}
