@@ -5,7 +5,6 @@ import About from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./pages/Footer/Footer";
-import "./App.css";	
 import Services from "./pages/ServiceLists/Service";
 import Pricing from "./pages/Pricing";
 import Login from "./pages/LoginSystem/Login";
