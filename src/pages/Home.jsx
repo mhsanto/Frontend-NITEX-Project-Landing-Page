@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import ShowCounter from "../components/ShowCounter";
 import Slider from "../components/Slider";
 import { Designing, Developing } from "./ServiceLists/servicesData";
+import About from "./AboutUs";
 const Home = () => {
   const servicesToShow = Developing.slice(0, 4);
   const servicesToShowDesign = Designing.slice(0, 5);
@@ -9,8 +10,11 @@ const Home = () => {
     <>
       <Slider />
       <ShowCounter />
+
       <section className="max-w-7xl mx-auto pt-8">
-        <h1 className="text-4xl uppercase text-center pb-8">services we provide</h1>
+        <h1 className="text-4xl uppercase text-center pb-8">
+          services we provide
+        </h1>
         <div className="flex flex-wrap gap-2 mb-2">
           {servicesToShow.map((service) => (
             <div key={service.id} className="grow">
@@ -43,6 +47,7 @@ const Home = () => {
           </Link>
         </div>
       </section>
+      <About />
     </>
   );
 };
