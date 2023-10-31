@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Developing, Designing } from "./servicesData";
+import { motion } from "framer-motion";
 const Services = () => {
   const [showMore, setShowMore] = useState(false);
   const isShowMore = () => {
@@ -15,8 +16,24 @@ const Services = () => {
           Developing
         </h1>
         <div className=" flex flex-col gap-3 w-1/2">
-          {Developing.map((service) => (
-            <div key={service.id} className=" ">
+          {Developing.map((service, index) => (
+            <motion.div
+              initial={{
+                opacity: 0,
+                // if odd index card,slide from right instead of left
+                x: index % 2 === 0 ? 50 : -50,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0, // Slide in to its original position
+                transition: {
+                  duration: 1, // Animation duration
+                },
+              }}
+              viewport={{ once: true }}
+              key={service.id}
+              className=" "
+            >
               <h2 className="text-3xl custom-font font-semibold tracking-wider">
                 {service.title}
               </h2>
@@ -31,7 +48,7 @@ const Services = () => {
                   <span onClick={isShowMore}>Show Less ...</span>
                 </p>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -40,23 +57,39 @@ const Services = () => {
           Designing
         </h1>
         <div className=" flex flex-col gap-3 w-1/2">
-          {Designing.map((service) => (
-            <div key={service.id} className=" ">
-              <h2 className="text-3xl custom-font font-semibold tracking-wider">
+          {Designing.map((service, index) => (
+            <motion.div
+              initial={{
+                opacity: 0,
+                // if odd index card,slide from right instead of left
+                x: index % 2 === 0 ? 50 : -50,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0, // Slide in to its original position
+                transition: {
+                  duration: 1, // Animation duration
+                },
+              }}
+              viewport={{ once: true }}
+              key={service.id}
+              className=" "
+            >
+              <motion.h2 className="text-3xl custom-font font-semibold tracking-wider">
                 {service.title}
-              </h2>
+              </motion.h2>
               {!showMore ? (
-                <p className="text-xs italic text-slate-300">
+                <motion.p className="text-xs italic text-slate-300">
                   {service.description.slice(0, 100)}{" "}
                   <span onClick={isShowMore}>Show More ...</span>
-                </p>
+                </motion.p>
               ) : (
-                <p className="text-xs italic text-slate-300">
+                <motion.p className="text-xs italic text-slate-300">
                   {service.description}
                   <span onClick={isShowMore}>Show Less ...</span>
-                </p>
+                </motion.p>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -81,7 +81,7 @@ const Testimonial = () => {
                   </p>
                 </div>
               </div>
-              <p className="text-lg font-medium max-w-2xl whitespace-pre-wrap text-slate-200 ">
+              <p className="text-lg md:text-xl font-thin max-w-2xl whitespace-pre-wrap text-slate-200 ">
                 &quot;{testimonial.comment}&quot;
               </p>
             </div>

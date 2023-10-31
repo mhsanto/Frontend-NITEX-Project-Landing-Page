@@ -14,7 +14,7 @@ export const navItems = [
 
   {
     title: "Testimonials",
-    href: "/testimonials",
+    href: "/testimonial",
   },
   {
     title: "Solutions",

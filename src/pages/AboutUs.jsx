@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const teamMembers = [
   {
     id: crypto.randomUUID(),
@@ -11,7 +10,7 @@ const teamMembers = [
   },
   {
     id: crypto.randomUUID(),
-    name: "Harun,Maya,David",
+    name: "Harun, Maya, David",
     image:
       "https://plus.unsplash.com/premium_photo-1691588961755-c775a2542b0e?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     Job: "Developer Team",
@@ -27,7 +26,6 @@ const teamMembers = [
   },
 ];
 const About = () => {
-
   return (
     <div className="max-w-[90rem] mx-auto px-4">
       <div className="flex justify-between pb-6 items-center py-6">
@@ -37,32 +35,46 @@ const About = () => {
         </h1>
       </div>
       {/* Team members */}
-      <div className="flex flex-wrap gap-2 justify-center">
-        {teamMembers.map((member) => (
-          <Link
-            key={member.id}
-            href="/"
-            className=" flex flex-col sm:flex-row items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 sm:w-[400px] grow group overflow-hidden"
-          >
-            <img
-              className="object-contain sm:object-cover  w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg transition duration-300 group-hover:scale-110 "
-              src={member.image}
-              alt={member.name}
-            />
-            <div className="flex flex-col justify-between p-4 leading-normal text-black">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight whitespace-wrap">
-                {member.name}
-              </h5>
-              <h6 className="mb-2 text-sm font-bold tracking-tight text-slate-800 ">
-                {member.job}
-              </h6>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-800 tracking-tighter">
-                {member.desc.slice(0, 200)}...
-              </p>
-            </div>
-          </Link>
+      <motion.div className="flex flex-wrap gap-2 justify-center">
+        {teamMembers.map((member, index) => (
+        
+            <motion.a
+              key={member.id}
+              initial={{
+                opacity: 0,
+                // if odd index card,slide from right instead of left
+                x: index % 2 === 0 ? 50 : -50,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0, // Slide in to its original position
+                transition: {
+                  duration: 1, // Animation duration
+                },
+              }}
+              viewport={{ once: true }}
+              href="/"
+              className=" flex  sm:flex-row items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 sm:w-[400px] grow group overflow-hidden"
+            >
+              <motion.img
+                className="object-contain  sm:object-cover  w-full rounded-t-lg md:h-auto h-96 md:w-48 md:rounded-none md:rounded-l-lg transition duration-300 sm:group-hover:scale-110 "
+                src={member.image}
+                alt={member.name}
+              />
+              <motion.div className="flex flex-col justify-between p-4 leading-normal text-black">
+                <motion.h5 className="mb-2 text-2xl font-bold tracking-tight whitespace-wrap">
+                  {member.name}
+                </motion.h5>
+                <motion.h6 className="mb-2 text-sm font-bold tracking-tight text-slate-800 ">
+                  {member.job}
+                </motion.h6>
+                <motion.p className="mb-3 font-normal text-gray-700 dark:text-gray-800 tracking-tighter">
+                  {member.desc.slice(0, 100)}...
+                </motion.p>
+              </motion.div>
+ </motion.a>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -28,7 +28,7 @@ const Footer = () => {
                   Position:{menu.position}
                 </p>
                 <Link
-                  href="https://www.linkedin.com/in/mh-santo/"
+                  to="https://www.linkedin.com/in/mh-santo/"
                   target="_blank"
                   className="text-center flex justify-center gap-1 items-center
                   capitalize text-base text-slate-700 hover:text-slate-500 tracking-tighter hover:underline"
@@ -49,7 +49,7 @@ const Footer = () => {
           {/* Links */}
           {navItems.map((navItem) => (
             <Link
-              href={navItem.href}
+              to={navItem.href}
               key={navItem.title}
               className="my-3 block  hover:underline underline-offset-2 text-sm font-medium duration-700"
             >
@@ -65,25 +65,25 @@ const Footer = () => {
           </div>
           {/* Links */}
           <Link
-            href="/"
+            to="/"
             className="my-3 block  text-base font-medium duration-700"
           >
             Facebook
           </Link>
           <Link
-            href="/"
+            to="/"
             className="my-3 block  text-base font-medium duration-700"
           >
             Twitter
           </Link>
           <Link
-            href="/"
+            to="/"
             className="my-3 block  text-base font-medium duration-700"
           >
             Linkedin
           </Link>
           <Link
-            href="/"
+            to="/"
             className="my-3 block  text-base font-medium duration-700"
           >
             YouTube
@@ -101,7 +101,7 @@ const Footer = () => {
             © Copyright BIST {new Date().getFullYear()} . All Rights Reserved.
             Code By{" "}
             <Link
-              href="https://www.linkedin.com/in/mh-santo/"
+              to="https://www.linkedin.com/in/mh-santo/"
               target="_blank"
               className="underline text-xs"
             >

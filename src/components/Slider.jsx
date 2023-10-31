@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 
 import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const contentData = [
   {
     title: "We take your ideas and make it happen",
@@ -55,12 +55,24 @@ function Slider() {
           <BiRightArrow size={25} />
         </button>
       </div>
-      <div className="flex flex-col sm:flex-row  items-center px-2 sm:px-12 md:px-14  lg:px-20 justify-between pb-9 sm:pb-0">
-        <div className="flex flex-col order-2 sm:order-none gap-5 md:gap-7 sm:w-1/2">
+      <motion.div  initial={{
+        opacity: 0,
+        // if odd index card,slide from right instead of left
+        x: currentIndex % 2 === 0 ? 50 : -50
+      }}
+      whileInView={{
+        opacity: 1,
+        x: 0, // Slide in to its original position
+        transition: {
+          duration: 1 // Animation duration
+        }
+      }}
+      viewport={{ once: true }}  className="flex flex-col sm:flex-row  items-center px-2 sm:px-12 md:px-14  lg:px-20 justify-between pb-9 sm:pb-0">
+        <motion.div className="flex flex-col order-2 sm:order-none gap-5 md:gap-7 sm:w-1/2">
           <p className="text-4xl  md:text-5xl lg:text-6xl md:pb-6 pb-2 uppercase font-semibold text-center sm:text-start">
             {contentData[currentIndex].title}
           </p>
-          <div className="flex  gap-7 items-center justify-center sm:justify-normal">
+          <motion.div className="flex  gap-7 items-center justify-center sm:justify-normal">
             <Link
               to={contentData[currentIndex].link1.to}
               className="underline underline-offset-4 md:text-lg whitespace-nowrap text-sm"
@@ -73,14 +85,14 @@ function Slider() {
             >
               {contentData[currentIndex].link2.text}
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <Lottie
           animationData={images[currentIndex]}
           className="sm:h-[30rem] sm:w-1/2"
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

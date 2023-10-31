@@ -1,32 +1,19 @@
-import { useEffect, useState } from "react";
+import { animate, useMotionValue, useTransform,motion } from "framer-motion";
+import { useEffect } from "react";
 
 
 // eslint-disable-next-line react/prop-types
 export default function Counter({ dataTarget }) {
-  const [count, setCount] = useState(0);
-  const target = parseInt(dataTarget);
-  const increment = target / 2000
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
+
   useEffect(() => {
-    let animationFrameId;
+    const animation = animate(count, dataTarget, {
+      duration: 5
+    });
 
-    const updateCounter = () => {
-      if (count < target) {
-        setCount((prevCount) => prevCount + increment);
-        animationFrameId = requestAnimationFrame(updateCounter);
-      } else {
-        setCount(target);
-      }
-    };
+    return animation.stop;
+  }, [count, dataTarget]);
 
-    if (count < target) {
-      updateCounter();
-    }
-
-    return () => {
-      // Clean up the animation frame when the component unmounts
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [target, increment, count]);
-
-  return <div className="font-semibold">{Math.ceil(count)}</div>;
+  return <motion.h1 className="font-semibold text-2xl">{rounded}</motion.h1>;
 }

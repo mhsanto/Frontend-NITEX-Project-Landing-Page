@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useWidth from "../hooks/useWidth";
+import { motion } from "framer-motion";
 const links = [
   {
     title: "Home",
@@ -51,15 +52,21 @@ const Navbar = () => {
   const text = ["N", "I", "T", "E", "X"];
   return (
     <nav className="bg-white text-black">
-      <header className=" flex  justify-between max-w-7xl mx-auto items-center py-4  px-4 relative">
+      <header className=" flex  justify-between max-w-7xl mx-auto items-center py-4  px-4 relative z-[100]">
         <Link to="/" className="flex gap-1 sm:gap-3">
-          {text.map((letter) => (
-            <span
+          {text.map((letter,i) => (
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.25,
+                delay: i / 2,
+              }}
               key={letter}
               className="text-2xl font-medium whitespace-nowrap"
             >
               {letter}
-            </span>
+            </motion.span>
           ))}
         </Link>
 
@@ -67,7 +74,7 @@ const Navbar = () => {
         {!isWidth ? (
           <ul className="flex gap-5  text-black   right-0 bg-white top-[100%] ">
             {links.map((link) => (
-              <li key={link.title}>
+              <motion.li key={link.title} whileTap={{ scale: 0.85 }}>
                 <Link
                   to={link.href}
                   className="text-base uppercase cursor-pointer transition-all 
@@ -75,14 +82,15 @@ const Navbar = () => {
                 >
                   {link.title}
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         ) : (
           isOpen && (
-            <ul className="flex gap-5 flex-col text-black  absolute  right-0 bg-white top-[100%] ">
+            <ul className="flex gap-5 flex-col text-black  absolute  right-0 bg-white top-[100%] z-30">
               {links.map((link) => (
-                <li
+                <motion.li
+                  whileTap={{ scale: 0.85 }}
                   key={link.title}
                   className="py-2
             border-b hover:bg-zinc-900/80 hover:text-white  px-9"
@@ -94,7 +102,7 @@ const Navbar = () => {
                   >
                     {link.title}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           )
@@ -104,14 +112,17 @@ const Navbar = () => {
           {loginRegisterLinks.map((link) => (
             <li key={link.title}>
               {link.title === "Login" ? (
-                <Link
-                  to={link.href}
-                  className=" uppercase bg-black outline-none text-white font-medium 
+                <Link to={link.href}>
+                  <motion.button
+                    whileTap={{ scale: 0.85 }}
+                    className=" uppercase bg-black outline-none text-white font-medium 
                     px-6 sm:px-7  py-2 rounded-full 
                     hover:bg-white hover:text-black hover:outline-black
                     cursor-pointer transition-all duration-300 whitespace-nowrap "
-                >
-                  {link.title}
+                  >
+                    {" "}
+                    {link.title}
+                  </motion.button>
                 </Link>
               ) : (
                 <Link
