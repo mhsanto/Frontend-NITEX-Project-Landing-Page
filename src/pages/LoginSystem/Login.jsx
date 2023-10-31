@@ -12,7 +12,7 @@ const Login = () => {
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           {/* Left column container with background*/}
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
-          <Lottie  animationData={LoginImage} className="h-[30rem]" />
+            <Lottie animationData={LoginImage} className="h-[30rem]" />
           </div>
           {/* Right column container with form */}
           <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
@@ -23,17 +23,20 @@ const Login = () => {
 
               {/* Remember me checkbox */}
               <div className="mb-6 flex items-center justify-between">
-                <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-                  <input type="checkbox" defaultValue="" />
-                  <label
-                    className="inline-block pl-1 tracking-tighter text-sm hover:cursor-pointer capitalize"
+                <div className="mb-[0.125rem] block ">
+                  <Link
+                    to="/register"
+                    className="inline-block pl-1 tracking-tighter text-base hover:cursor-pointer capitalize underline underline-offset-2"
                     htmlFor="exampleCheck3"
                   >
-                    Remember me
-                  </label>
+                    Create An Account
+                  </Link>
                 </div>
                 {/* Forgot password link */}
-                <Link href="/" className="text-sm tracking-tighter capitalize hover:underline">
+                <Link
+                  href="/"
+                  className="text-sm tracking-tighter capitalize hover:underline"
+                >
                   Forgot password?
                 </Link>
               </div>
