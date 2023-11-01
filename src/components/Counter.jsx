@@ -15,5 +15,5 @@ export default function Counter({ dataTarget }) {
     return animation.stop;
   }, [count, dataTarget]);
 
-  return <motion.h1 className="font-semibold text-2xl">{rounded}</motion.h1>;
+  return <motion.h1  viewport={{ once: true }} className="font-semibold text-2xl">{rounded}</motion.h1>;
 }
